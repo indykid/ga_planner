@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2013-07-15
+  end_date: 2013-07-15
+  time: 2013-07-15 12:45:16
+  duration_hours: 9.99
+  course_id: 1
+  classroom_id: 1
+
+two:
+  start_date: 2013-07-15
+  end_date: 2013-07-15
+  time: 2013-07-15 12:45:16
+  duration_hours: 9.99
+  course_id: 1
+  classroom_id: 1
