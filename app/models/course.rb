@@ -5,6 +5,6 @@ class Course < ActiveRecord::Base
   has_many :users, through: :enrollments
 
   has_many :bookings
-  has_one :classroom, through: :bookings
+  has_many :classrooms, through: :bookings
 
 end
