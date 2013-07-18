@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  load_and_authorize_resource
   # GET /courses
   # GET /courses.json
   def index
@@ -40,6 +41,7 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
+
     @course = Course.new(params[:course])
 
     respond_to do |format|
@@ -80,4 +82,14 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def enroll
+    @course = Course.find(params[:id])
+    @enrollment = Enrollment.create(course_id: @course.id, user_id: current_user.id)
+    
+    redirect_to courses_path
+  end
+
+
+
 end

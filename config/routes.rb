@@ -1,5 +1,20 @@
 GaPlanner::Application.routes.draw do
   
+  resources :sessions, only: [:new, :create]
+
+  delete 'logout', to: "sessions#logout"
+
+  root to: "courses#index"
+
+  get 'login', to: "sessions#new"
+
+  get 'courses/:id/enroll', to: "courses#enroll", as: 'enroll'
+
+  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+
+
+
+
   resources :classrooms
 
 
@@ -13,6 +28,7 @@ GaPlanner::Application.routes.draw do
 
 
   resources :users
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

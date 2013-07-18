@@ -9,3 +9,4 @@ class ChangeTimeColumnToStartTime < ActiveRecord::Migration
     remove_column :bookings, :start_time, :time
   end
 end
+

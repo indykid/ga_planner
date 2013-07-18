@@ -1,35 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Start date:</b>
-  <%= @booking.start_date %>
-</p>
-
-<p>
-  <b>End date:</b>
-  <%= @booking.end_date %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @booking.time %>
-</p>
-
-<p>
-  <b>Duration hours:</b>
-  <%= @booking.duration_hours %>
+  <b>date:</b>
+  <%= @booking.b_date %>
 </p>
 
 <p>
   <b>Course:</b>
-  <%= @booking.course_id %>
+  <%= link_to @booking.course.title, @booking %>
 </p>
 
 <p>
   <b>Classroom:</b>
-  <%= @booking.classroom_id %>
+  <%= @booking.classroom.c_name %>
 </p>
 
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>
+

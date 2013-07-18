@@ -11,30 +11,33 @@
     </div>
   <% end %>
 
+  <%= f.label :course_id %>
+  <%= f.collection_select :course_id, Course.all, :id, :title %>
+
+  <%= f.label :classroom_id%>
+    <%= f.collection_select :classroom_id, Classroom.all, :id, :c_name %>
+
+  
+
+
   <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <label>M</label>
+    <input type="checkbox" name="days_of_week[]" value="Monday">
+    <label>T</label>
+
+    <input type="checkbox" name="days_of_week[]" value="Tuesday">
+    <label>W</label>
+
+    <input type="checkbox" name="days_of_week[]" value="Wednesday">
+    <label>T</label>
+
+    <input type="checkbox" name="days_of_week[]" value="Thursday">
+    <label>F</label>
+
+    <input type="checkbox" name="days_of_week[]" value="Friday"> 
   </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.time_select :time %>
-  </div>
-  <div class="field">
-    <%= f.label :duration_hours %><br />
-    <%= f.text_field :duration_hours %>
-  </div>
-  <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.number_field :course_id %>
-  </div>
-  <div class="field">
-    <%= f.label :classroom_id %><br />
-    <%= f.number_field :classroom_id %>
-  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

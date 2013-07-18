@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+
+  load_and_authorize_resource
+  
   # GET /bookings
   # GET /bookings.json
   def index
@@ -40,18 +43,51 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(params[:booking])
 
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render json: @booking, status: :created, location: @booking }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+    @course = Course.find params[:booking][:course_id]
+
+    @classroom = Classroom.find params[:booking][:classroom_id]
+
+    @days_of_week = params[:days_of_week]
+
+
+    @start = @course.start_date
+    @end = @course.end_date
+
+    @course_days = (@course.start_date..@course.end_date).to_a.map do |day|
+       if @days_of_week.include? day.strftime('%A')
+        day 
+       end
+      end.compact
+
+      book_array = []
+      @course_days.each do |d|
+        if Booking.where('classroom_id = ? AND b_date = ?', @classroom.id, d.to_date).count > 0
+          redirect_to new_booking_path, notice: "this classroom is not available on #{d}" and return
+        else 
+          book_array << Booking.new(classroom_id: @classroom.id, course_id: @course.id, b_date: d)
+        end
       end
-    end
-  end
+      book_array.each do |b|
+          b.save
+        end
+        
+      redirect_to @course
+
+      end
+
+   # @booking = Booking.new(params[:booking])
+
+    # respond_to do |format|
+    #   if @booking.save
+    #     format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+    #     format.json { render json: @booking, status: :created, location: @booking }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @booking.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  
 
   # PUT /bookings/1
   # PUT /bookings/1.json

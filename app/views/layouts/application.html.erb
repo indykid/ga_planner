@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GaPlanner</title>
+  <title>GA Planner</title>
+  <link href='http://fonts.googleapis.com/css?family=Michroma|Quattrocento+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
+    <div id="top" class="cf">
+      <h1 id="logo">GA logo</h1>
 
-<%= yield %>
+      <% if current_user %>
+      <ul class="right authenticate">
+    <li><%= link_to 'log out', logout_path(session), method: :delete, data: {confirm: 'Are you sure?'}, class: "authenticate" %></li>
+    <li>
+      <span class="notice">Hello, <%= current_user.name %></span>
+    </li>
+    <% else %>
+    <li class="right"><%= link_to 'login', login_path, class: "authenticate"  %><li/>
+    <li class="right"><%= link_to 'sign up', new_user_path, class: "authenticate"%></li>
+      </ul>
+    <%end%>
+    </div>
 
-</body>
+    <div class="container alpha80white">
+
+        
+
+
+        <%= render 'nav' %>
+
+        <div class="content ">
+        
+
+
+          <% flash.each do |name, message| %>
+         <div class="flash-message flash-message-<%= name %>">
+          <%= message %>
+         </div>
+          <% end %>
+
+        <%= yield %>
+
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,9 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <b>C name:</b>
-  <%= @classroom.c_name %>
+  
 </p>
+<ul>
+  <% @classroom.bookings.group_by(&:b_date).each do |date, bookings| %>
+    <%= date.strftime('%d %m %y') if date %>
+    <ul>
+      <% bookings.each do |booking| %>
+        <li>
+          <%= link_to booking.course.title, booking.course %>
+        </li>
+      <% end %>
+    </ul>
+  <%end%>
+</ul>
+
+
+
 
 
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |

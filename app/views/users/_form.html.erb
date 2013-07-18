@@ -1,0 +1,48 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <h4>Form is invalid</h4>
+    <ul>
+      <% for message in @user.errors.full_messages %>
+        <li><%= message %></li>
+      <%end%>
+    </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+
+  <% if current_user && current_user.role?('admin') %>
+  <div>
+    <%= f.label :role %>
+    <%= f.select :role, ['admin', 'student', 'instructor'] %>
+  </div>
+  <%end%>
+
+
+  <div class="field">
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>

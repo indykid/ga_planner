@@ -11,17 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715154607) do
+ActiveRecord::Schema.define(:version => 20130717192448) do
 
   create_table "bookings", :force => true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.decimal  "duration_hours"
     t.integer  "course_id"
     t.integer  "classroom_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.time     "start_time"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.date     "b_date"
   end
 
   create_table "classrooms", :force => true do |t|
@@ -36,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20130715154607) do
     t.integer  "price"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "enrollments", :force => true do |t|
@@ -53,8 +52,10 @@ ActiveRecord::Schema.define(:version => 20130715154607) do
     t.text     "bio"
     t.string   "photo"
     t.string   "role"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "email"
+    t.string   "password_digest"
   end
 
 end

@@ -1,0 +1,189 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ 
+ */
+
+body {
+  background-color: gray;
+  background-image: image-url('ga-background.png');
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  font-family: 'Quattrocento Sans', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+
+}
+
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+  min-height: 800px;
+  padding-top:  10px;
+}
+
+.content {
+
+}
+
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+.nav {
+    font-family: 'Michroma', sans-serif;
+
+}
+
+#top {
+  background-color: black;
+  padding: 10px 10px 0 20px;
+
+
+}
+
+#logo {
+     background: image-url('ga-logo.png') no-repeat;
+     /*height: 120px;*/
+     width: 460px;
+     margin: 0;
+     text-indent: -100%;
+     overflow: hidden;
+     white-space: nowrap;
+     float:left;
+     
+     }
+
+
+
+.authenticate {
+  color:  #2EB8E6;
+}
+
+.authenticate li {
+  float: right;
+
+}
+
+.authenticate li a {
+  float: right;
+  margin-left: 20px;
+}
+
+.notice {
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav ul {
+  padding-left: 0;
+}
+
+nav li {
+  float: left;
+  margin-left: 1px;
+}
+
+nav li a:hover {
+    background: rgba(205, 205, 193, 0.7);
+} 
+
+nav a {
+  padding: 15px 15px;
+}
+
+nav li a:active {
+    background: rgba(205, 205, 193, 0.7);
+}
+
+nav li a.selected {
+    background: rgba(205, 205, 193, 0.7);
+    /*text-shadow: 1px 1px #fff;*/
+}
+
+.right {
+  float: right;
+}
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+.rounded {
+    -moz-border-radius: 5px; /* Firefox */
+    -webkit-border-radius: 5px; /* Safari, Chrome */
+    border-radius: 5px; /* CSS3 */
+}
+
+.alpha80white {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(255, 255, 255); 
+    /* RGBa with 0.4 opacity */
+    background-color: rgba(255, 255, 255, 0.70);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";}
+
+
+
+.alpha70grey {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(205, 197, 191); 
+    /* RGBa with 0.4 opacity */
+    background-color: rgba(205, 197, 191, 0.70);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+  }
+
+
+  div.field {
+    margin-bottom: 20px;
+    input, textarea {
+      -moz-border-radius: 5px; /* Firefox */
+      -webkit-border-radius: 5px; /* Safari, Chrome */
+      border-radius: 5px; /* CSS3 */
+    }
+    label {
+      display: block;
+    }
+
+  }
+
+

@@ -4,4 +4,9 @@ class Classroom < ActiveRecord::Base
   has_many :bookings
   has_many :courses, through: :bookings
 
+
+  def available?
+
+  end
+
 end

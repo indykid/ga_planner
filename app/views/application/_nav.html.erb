@@ -1,0 +1,20 @@
+
+<nav class="cf">
+<ul>
+        <li class="nav"><%= link_to "Courses", root_path, class: "rounded #{current_page?('courses', 'index')}" %></li>
+        <li class="nav"><%= link_to "Schedule", bookings_path, class: "rounded #{current_page?('bookings', 'index')}"  %></li>
+        <% if current_user %>
+        <li class="nav"><%= link_to "My account", current_user, class: "rounded #{current_page?('users', 'show')}"  %></li>
+        <% end %>
+
+
+        <% if current_user && current_user.role?('admin')%>
+        <li class="nav"><%= link_to "Dashboard", dashboard_path, class: "rounded #{current_page?('users', 'dashboard')}"  %></li>
+        <% end %>
+  
+    <% flash.each do |name, message|  %>
+    <p class="notice"><%= message%></p>
+    <%end%>
+
+  </ul>
+</nav>

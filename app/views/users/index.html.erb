@@ -1,2 +1,17 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users</h1>
+
+
+<% @users.each do |u| %>
+<ul>
+  <li><%= link_to u.name, u %></li>
+  <li><%= u.email %></li>
+  <li><%= u.role %></li>
+</ul>
+
+    <% if can? :update, u %>
+      <div >
+      <%= link_to 'Edit', edit_user_path(u), class: "rounded alpha50black padded"%>
+      </div>
+    <% end %>
+
+<% end %>

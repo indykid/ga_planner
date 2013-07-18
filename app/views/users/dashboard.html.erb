@@ -1,0 +1,13 @@
+<% content_for :page_title do %>
+  dashboard
+<% end %>
+
+<h2>what would you like to do?</h2>
+ 
+<ul>
+  <li><%= link_to 'create course', new_course_path %></li>
+  <li><%= link_to 'view courses and edit', courses_path %></li>
+  <li><%= link_to 'book classroom', new_booking_path %></li>
+  <li><%= link_to 'view bookings and edit', bookings_path %></li>
+
+</ul>

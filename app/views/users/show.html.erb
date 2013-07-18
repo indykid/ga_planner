@@ -1,2 +1,41 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2><%= @user.name %></h2>
+
+
+<ul>
+  <li>
+    <h4>Bio:</h4>
+    <%= @user.bio %>
+  </li>
+
+<li>
+    <h4>Age:</h4>
+    <%= @user.age %>
+  </li>
+
+  <li>
+    <h4>Email:</h4>
+    <%= @user.email %>
+  </li>
+
+  <h4>Courses:</h4>
+  <ul>
+  <% @user.courses.each do |course| %>
+  <li>
+
+  <%= course.title %>
+</li>
+
+
+<% end %>
+</ul>
+
+<div class="right clear rounded alpha50black padded">
+  <% if can? :update, @user %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+
+</div>
+
+
+

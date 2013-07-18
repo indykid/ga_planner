@@ -1,4 +1,5 @@
 class EnrollmentsController < ApplicationController
+  load_and_authorize_resource
   # GET /enrollments
   # GET /enrollments.json
   def index
@@ -9,6 +10,17 @@ class EnrollmentsController < ApplicationController
       format.json { render json: @enrollments }
     end
   end
+
+  # def all_unconfirmed
+  #   @enrollments = Enrollment.where('involvement IN ?', ['unconfirmed_student', 'unconfirmed_teacher'])
+  # end
+
+  # def confirm
+  #   @enrollment = Enrollment.find params[:id]
+  #   @enrollment.involvement = params[:new_enrollment_type]
+  #   @enrollment.save
+  #   redirect_to @enrollment
+  # end
 
   # GET /enrollments/1
   # GET /enrollments/1.json

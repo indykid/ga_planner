@@ -1,29 +1,21 @@
-<h1>Listing bookings</h1>
+<h2>schedule</h2>
 
 <table>
   <tr>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Time</th>
-    <th>Duration hours</th>
-    <th>Course</th>
-    <th>Classroom</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>day</th>
+    <th>course</th>
+    <th>classroom</th>
   </tr>
 
 <% @bookings.each do |booking| %>
   <tr>
-    <td><%= booking.start_date %></td>
-    <td><%= booking.end_date %></td>
-    <td><%= booking.time %></td>
-    <td><%= booking.duration_hours %></td>
-    <td><%= booking.course_id %></td>
-    <td><%= booking.classroom_id %></td>
-    <td><%= link_to 'Show', booking %></td>
-    <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-    <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= booking.b_date %></td>
+    
+    
+    <td><%= link_to booking.course.title, booking %></td>
+    <td><%= booking.classroom.c_name %></td>
+    
+    
   </tr>
 <% end %>
 </table>
