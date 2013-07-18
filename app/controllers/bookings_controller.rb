@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   load_and_authorize_resource
   
+
   # GET /bookings
   # GET /bookings.json
   def index
@@ -47,12 +48,16 @@ class BookingsController < ApplicationController
     @course = Course.find params[:booking][:course_id]
 
     @classroom = Classroom.find params[:booking][:classroom_id]
+    @start = @course.start_date
+    @end = @course.end_date
+    @timeslot = params[:booking][:b_time]
+ 
 
     @days_of_week = params[:days_of_week]
 
-
-    @start = @course.start_date
-    @end = @course.end_date
+    if @days_of_week.nil?
+     render action: 'new', notice: 'please select at least one day'
+    end
 
     @course_days = (@course.start_date..@course.end_date).to_a.map do |day|
        if @days_of_week.include? day.strftime('%A')
@@ -62,7 +67,7 @@ class BookingsController < ApplicationController
 
       book_array = []
       @course_days.each do |d|
-        if Booking.where('classroom_id = ? AND b_date = ?', @classroom.id, d.to_date).count > 0
+        if Booking.where('classroom_id = ? AND b_date = ? AND (b_time = ? OR b_time = ?)', @classroom.id, d.to_date, @timeslot, 'Day').count > 0
           redirect_to new_booking_path, notice: "this classroom is not available on #{d}" and return
         else 
           book_array << Booking.new(classroom_id: @classroom.id, course_id: @course.id, b_date: d)

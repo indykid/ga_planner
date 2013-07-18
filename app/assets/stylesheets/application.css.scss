@@ -24,16 +24,19 @@ body {
 
 }
 
+.wrapper {
+    background-color: rgba(0, 0, 0, 0.30);
+}
 
 .container {
-  width: 940px;
+  width: 980px;
   margin: 0 auto;
-  min-height: 800px;
+  min-height: 900px;
   padding-top:  10px;
 }
 
 .content {
-
+  margin: 20px;
 }
 
 
@@ -50,6 +53,7 @@ h5,
 #top {
   background-color: black;
   padding: 10px 10px 0 20px;
+  /*position: fixed;*/
 
 
 }
@@ -94,8 +98,13 @@ a {
   text-decoration: none;
 }
 
+nav {
+  margin: 0 20px;
+}
+
 nav ul {
   padding-left: 0;
+
 }
 
 nav li {
@@ -103,20 +112,26 @@ nav li {
   margin-left: 1px;
 }
 
-nav li a:hover {
-    background: rgba(205, 205, 193, 0.7);
-} 
+
 
 nav a {
   padding: 15px 15px;
+  color: white;
 }
 
+nav li a:hover {
+    color: black;    
+    background-color: rgba(255, 255, 0, 0.70);
+} 
+
 nav li a:active {
-    background: rgba(205, 205, 193, 0.7);
+    color: black;
+    background-color: rgba(255, 255, 0, 0.80);
 }
 
 nav li a.selected {
-    background: rgba(205, 205, 193, 0.7);
+    background: #FFFF00;
+    color: black;
     /*text-shadow: 1px 1px #fff;*/
 }
 
@@ -163,9 +178,9 @@ nav li a.selected {
 
 .alpha70grey {
     /* Fallback for web browsers that don't support RGBa */
-    background-color: rgb(205, 197, 191); 
+    background-color: rgb(224, 238, 224); 
     /* RGBa with 0.4 opacity */
-    background-color: rgba(205, 197, 191, 0.70);
+    background-color: rgba(0, 0, 0, 0.30);
     /* For IE 5.5 - 7*/
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
     /* For IE 8*/
