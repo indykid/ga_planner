@@ -6,7 +6,7 @@ has_secure_password
 
   attr_accessible :age, :bio, :name, :photo, :email, :password, :password_confirmation, :role
 
-  before_create :ensure_user_has_role
+  #before_create :ensure_user_has_role
 
 
   #validates :email, presence: true, uniquness: true

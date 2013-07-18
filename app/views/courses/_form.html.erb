@@ -23,6 +23,17 @@
     <%= f.label :price %><br />
     <%= f.number_field :price %>
   </div>
+
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= select_date :end_date %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
