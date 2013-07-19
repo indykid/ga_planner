@@ -7,16 +7,16 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
    session[:user_id] = user.id
-   redirect_to root_url, notice: "logged in!"
+   redirect_to root_url, notice: "you are logged in!"
   else
-   flash.now.alert = "invalid login credentials"
+   flash.now.alert = "invalid login credentials, please try again"
    render "new"
   end
  end
  
  def logout 
   session[:user_id] = nil
-  redirect_to root_url, notice: "logged out!"
+  redirect_to root_url, notice: "see you next time!"
  end
 end
   

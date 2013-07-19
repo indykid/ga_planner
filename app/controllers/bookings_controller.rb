@@ -68,7 +68,7 @@ class BookingsController < ApplicationController
       book_array = []
       @course_days.each do |d|
         if Booking.where('classroom_id = ? AND b_date = ? AND (b_time = ? OR b_time = ?)', @classroom.id, d.to_date, @timeslot, 'Day').count > 0
-          redirect_to new_booking_path, notice: "this classroom is not available on #{d}" and return
+          redirect_to new_booking_path, notice: "this classroom is not available on #{d} during #{@timeslot}" and return
         else 
           book_array << Booking.new(classroom_id: @classroom.id, course_id: @course.id, b_date: d)
         end
@@ -101,7 +101,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.update_attributes(params[:booking])
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to @booking, notice: 'your changes have been saved' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

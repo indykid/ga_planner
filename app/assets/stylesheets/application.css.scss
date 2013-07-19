@@ -46,7 +46,11 @@ h3,
 h4,
 h5,
 .nav,
-.action_button {
+.button,
+.action_button,
+.notice,
+.actions input,
+label {
     font-family: 'Michroma', sans-serif;
 
 }
@@ -57,7 +61,7 @@ h2 {
 } 
 
 h4 {
-  background-color: #D4D4D4;
+  background-color: #7FFFD4;
   margin: 10px 0;
   padding: 10px 10px;
 }
@@ -85,7 +89,7 @@ h4 {
 
 
 .authenticate {
-  color:  #2EB8E6;
+  margin-right: 20px;
 }
 
 .authenticate li {
@@ -96,12 +100,20 @@ h4 {
 .authenticate li a {
   float: right;
   margin-left: 20px;
+  color:  #2EB8E6;
+}
+
+#greeting {
+  color: white;
 }
 
 .notice {
-  color: white;
+  color: yellow;
   text-align: center;
   line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.50);
+  margin-top: 10px;
+  padding: 10px;
 }
 
 li {
@@ -130,23 +142,42 @@ nav li {
 
 nav a {
   padding: 15px 15px;
-  color: white;
+  color: black;    
+  background-color: rgba(255, 255, 0, 0.80);
 }
 
-nav li a:hover {
+nav li {
+  a:hover {
     color: black;    
-    background-color: rgba(255, 255, 0, 0.70);
-} 
-
-nav li a:active {
+    background: #FFFF00;}
+  a:active {
     color: black;
-    background-color: rgba(255, 255, 0, 0.80);
+    background: #FFFF00;}
+  a.selected {
+    background: #FFFF00;
+    color: black;}
 }
 
-nav li a.selected {
-    background: #FFFF00;
-    color: black;
-    
+form {
+  max-width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  -moz-border-radius: 3px; /* Firefox */
+  -webkit-border-radius: 3px; /* Safari, Chrome */
+  border-radius: 3px; /* CSS3 */
+}
+
+input {
+  width: 200px;
+  line-height: 1.5;
+  border: none;
+  -moz-border-radius: 3px; /* Firefox */
+  -webkit-border-radius: 3px; /* Safari, Chrome */
+  border-radius: 3px; /* CSS3 */
+  background-color: rgba(255, 255, 255, 0.8);
+
+
 }
 
 .right {
@@ -204,15 +235,20 @@ nav li a.selected {
 
   div.field {
     margin-bottom: 20px;
-    input, textarea {
-      -moz-border-radius: 5px; /* Firefox */
-      -webkit-border-radius: 5px; /* Safari, Chrome */
-      border-radius: 5px; /* CSS3 */
+    textarea {
+      -moz-border-radius: 3px; /* Firefox */
+      -webkit-border-radius: 3px; /* Safari, Chrome */
+      border-radius: 3px; /* CSS3 */
     }
     label {
       display: block;
+      font-size:  14px;
     }
 
+  }
+
+  .actions input {
+    max-width: 100px;
   }
 
 
@@ -229,7 +265,8 @@ nav li a.selected {
 
   }
 
-  .box p {
+  .box h4 a, 
+  .box p a{
     color: black;
   }
 
@@ -238,7 +275,7 @@ nav li a.selected {
   }
 
   .button {
-    margin:10px;
+    margin:10px 10px 30px;
     padding: 10px;
     background-color: rgba(255, 255, 0, 0.80);
     display: inline-block;

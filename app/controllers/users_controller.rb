@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: 'Your account was successfully created.'
+      redirect_to @user, notice: 'thank you for registering!'
     else 
       render action 'new'
     end
@@ -37,20 +37,15 @@ class UsersController < ApplicationController
       @user.role = params[:user].delete(:role)
     end
 
-      if @user.update_attributes(params[:user])
-        redirect_to user_path, notice: 'Your account was successfully updated.'
-      else
-        render action 'edit'
-      end
+    if @user.update_attributes(params[:user])
+      redirect_to user_path, notice: 'your changes have been saved'
+    else
+      render action 'edit'
+    end
   end
 
   def dashboard
-    
-
   end
-
-
-
 
   def destroy
   end

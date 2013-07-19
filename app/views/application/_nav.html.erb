@@ -1,18 +1,16 @@
 
 <nav class="cf">
-<ul>
-        <li class="nav"><%= link_to "Courses", root_path, class: "rounded #{current_page?('courses', ['index', 'show', 'edit', 'new'])}" %></li>
-        <li class="nav"><%= link_to "Schedule", bookings_path, class: "rounded #{current_page?('bookings', ['index', 'show', 'edit', 'new'])}"  %></li>
-        <% if current_user %>
+  <ul class="cf">
+      <li class="nav"><%= link_to "Courses", root_path, class: "rounded #{current_page?('courses', ['index', 'show', 'edit', 'new'])}" %></li>
+      <li class="nav"><%= link_to "Schedule", bookings_path, class: "rounded #{current_page?('bookings', ['index', 'show', 'edit', 'new'])}"  %></li>
+      
+      <% if current_user %>
         <li class="nav"><%= link_to "My account", current_user, class: "rounded #{current_page?('users', ['index', 'show', 'edit', 'new'])}"  %></li>
-        <% end %>
+      <% end %>
 
 
         <% if current_user && current_user.role?('admin')%>
-        <li class="nav"><%= link_to "Dashboard", dashboard_path, class: "rounded #{current_page?('users', 'dashboard')}"  %></li>
-        <% end %>
-  
-    
-
+          <li class="nav"><%= link_to "Dashboard", dashboard_path, class: "rounded #{current_page?('users', 'dashboard')}"  %></li>
+        <% end %>    
   </ul>
 </nav>
