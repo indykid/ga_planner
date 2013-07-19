@@ -65,19 +65,19 @@ class BookingsController < ApplicationController
        end
       end.compact
 
-      book_array = []
+      @book_array = []
       @course_days.each do |d|
         if Booking.where('classroom_id = ? AND b_date = ? AND (b_time = ? OR b_time = ?)', @classroom.id, d.to_date, @timeslot, 'Day').count > 0
-          redirect_to new_booking_path, notice: "this classroom is not available on #{d} during #{@timeslot}" and return
+          redirect_to new_booking_path, notice: "this classroom is not available on #{d} during #{@slot}" and return
         else 
-          book_array << Booking.new(classroom_id: @classroom.id, course_id: @course.id, b_date: d)
+          @book_array << Booking.new(classroom_id: @classroom.id, course_id: @course.id, b_date: d, b_time: @timeslot)
         end
-      end
-      book_array.each do |b|
+    end
+        
+        @book_array.each do |b|
           b.save
         end
-        
-      redirect_to @course
+      redirect_to bookings_url
 
       end
 

@@ -4,10 +4,11 @@
 
 <h2>what would you like to do?</h2>
  
-<ul>
-  <li><%= link_to 'create course', new_course_path %></li>
-  <li><%= link_to 'view courses and edit', courses_path %></li>
-  <li><%= link_to 'book classroom', new_booking_path %></li>
-  <li><%= link_to 'view bookings and edit', bookings_path %></li>
+<ul class="box">
+  <h5 class="options"><%= link_to 'create course', new_course_path, class: "rounded" %></h5>
+  <h5><%= link_to 'view courses and edit', courses_path, class: "rounded"  %></h5>
+  <h5><%= link_to 'book classroom', new_booking_path, class: "rounded"  %></h5>
+  <h5><%= link_to 'view bookings and edit', bookings_path, class: "rounded"  %></h5>
+  <h5><%= link_to 'add classroom', new_classroom_path, class: "rounded"  %></h5>
 
 </ul>

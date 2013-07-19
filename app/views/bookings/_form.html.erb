@@ -11,15 +11,22 @@
     </div>
   <% end %>
 
+<div class="field">
   <%= f.label :course_id %>
   <%= f.collection_select :course_id, Course.all, :id, :title %>
+</div>
 
+<div class="field">
   <%= f.label :classroom_id%>
     <%= f.collection_select :classroom_id, Classroom.all, :id, :c_name %>
+  </div>
 
 
+<div class="field">
     <%= f.label :b_time, 'time slot' %>  
     <%= f.select :b_time, Booking.timeslots %>
+  </div>
+
 
 
 

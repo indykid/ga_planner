@@ -1,33 +1,32 @@
 <h2><%= @user.name %></h2>
 
 
-<ul>
-  <li>
-    <h4>Bio:</h4>
+<div class="box">
+
+  
+
+    <h5>Bio:</h5>
     <%= @user.bio %>
-  </li>
 
-<li>
-    <h4>Age:</h4>
+
+    <h5>Age:</h5>
     <%= @user.age %>
-  </li>
+  
 
-  <li>
-    <h4>Email:</h4>
+  
+    <h5>Email:</h5>
     <%= @user.email %>
-  </li>
+  
 
-  <h4>Courses:</h4>
+  <h5>Courses:</h5>
+
   <ul>
-  <% @user.courses.each do |course| %>
-  <li>
+    <% @user.courses.each do |course| %>
+    <li><%= course.title %></li>
+  </ul>
 
-  <%= course.title %>
-</li>
-
-
-<% end %>
-</ul>
+  <% end %>
+</div>
 
 <div class="right clear rounded alpha50black padded">
   <% if can? :update, @user %>

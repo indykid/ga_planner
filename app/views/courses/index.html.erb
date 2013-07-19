@@ -6,7 +6,7 @@
   <div class="box">
     <h4 class="rounded"><%= link_to course.title, course %></h4>
     <p><%= link_to course.description, course %></p>
-    <p><%= course.start_date%> - <%= course.end_date%></p>
+    <p>start: <%= course.start_date%>  end: <%= course.end_date%></p>
     <p>£<%= course.price %></p>
     <%= link_to 'ENROLL', enroll_path(course.id), class: "action_button rounded" %>
     </div>

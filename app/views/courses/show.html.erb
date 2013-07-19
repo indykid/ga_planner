@@ -1,22 +1,19 @@
 
+<div class="box">
 
-<p>
-  <b>Title:</b>
-  <%= @course.title %>
-</p>
+  <h5><%= @course.title %></h5>
 
-<p>
-  <b>Description:</b>
+  <h5>Description:</h5>
   <%= @course.description %>
-</p>
 
-<p>
-  <b>Price: £</b>
+
+  <h5>Price: £</h5>
   <%= @course.price %>
-</p>
 
 
+<h5>Days running on:</h5>
 <ul>
+
 <% @course.bookings.each do |b| %>
 
 <li><%= b.b_date if b.b_date %></li>
@@ -28,10 +25,9 @@
 
 
 
-<%= link_to 'Enroll', enroll_path(@course.id) %> |
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %> |
+<%= link_to 'Enroll', enroll_path(@course.id), class: "button" %>
+<%= link_to 'Edit', edit_course_path(@course), class: "button" %>
+<%= link_to 'Back', courses_path, class: "button"  %>
 
 
 

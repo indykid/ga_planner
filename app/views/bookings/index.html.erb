@@ -1,25 +1,17 @@
 <h2>schedule</h2>
 
-<table>
-  <tr>
-    <th>day</th>
-    <th>course</th>
-    <th>classroom</th>
-  </tr>
 
-<% @bookings.each do |booking| %>
-  <tr>
-    <td><%= booking.b_date %></td>
+<% @bookings.each do |booking|%>
+  <div class="box">
+    <h5><%= booking.b_date %></h5>
     
+    <p><%= link_to booking.course.title, booking %></p>
+    <p><%= booking.classroom.c_name %></p>
     
-    <td><%= link_to booking.course.title, booking %></td>
-    <td><%= booking.classroom.c_name %></td>
-    
-    
-  </tr>
-<% end %>
-</table>
+   
+  </div>
+  <% end %> 
 
-<br />
-
+<div class="button clear rounded">
 <%= link_to 'New Booking', new_booking_path %>
+</div>

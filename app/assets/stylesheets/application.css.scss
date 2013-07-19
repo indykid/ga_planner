@@ -63,7 +63,12 @@ h2 {
 h4 {
   background-color: #7FFFD4;
   margin: 10px 0;
-  padding: 10px 10px;
+  padding: 10px;
+}
+
+h5 {
+  background-color: #7FFFD4;
+  padding: 5px;
 }
 
 #top {
@@ -248,14 +253,18 @@ input {
   }
 
   .actions input {
-    max-width: 100px;
+    max-width: 175px;
+    padding: 10px;
+    color: white;
+    font-size: 12px;
+    background-color: #e62f36;
   }
 
 
   .box {
     position: relative;
     width: 400px;
-    height: 400px;
+    min-height: 400px;
     float: left;
     margin: 10px;
     padding: 20px;
@@ -266,6 +275,7 @@ input {
   }
 
   .box h4 a, 
+  .box h5 a, 
   .box p a{
     color: black;
   }
@@ -277,8 +287,11 @@ input {
   .button {
     margin:10px 10px 30px;
     padding: 10px;
-    background-color: rgba(255, 255, 0, 0.80);
+    background-color: rgba(255, 255, 0, 0.70);
     display: inline-block;
+    a {
+      color: white;
+    }
   }
 
   .action_button {

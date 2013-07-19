@@ -1,20 +1,24 @@
 
 
-<p>
-  <b>C name:</b>
-  
-</p>
+<div class="box">
+<h4 class="rounded">Classroom <%= @classroom.c_name%>:</h4>
 <ul>
-  <% @classroom.bookings.group_by(&:b_date).each do |date, bookings| %>
-    <%= date.strftime('%d %m %y') if date %>
-    <ul>
-      <% bookings.each do |booking| %>
-        <li>
-          <%= link_to booking.course.title, booking.course %>
-        </li>
-      <% end %>
-    </ul>
-  <%end%>
+  <% if @classroom.bookings %>
+    <% @classroom.bookings.group_by(&:b_date).each do |date, bookings| %>
+      <%= date.strftime('%d %m %y') if date %>
+
+      <ul>
+        <% @bookings.each do |booking| %>
+          <li>
+            <%= link_to booking.course.title, booking.course %>
+          </li>
+        <% end %>
+      </ul>
+      <%end%>
+  <% else %>
+      <p>this classroom has no active bookings</p>
+
+<%end%>
 </ul>
 
 

@@ -18,6 +18,7 @@ class Ability
     end
     if user.role? nil
       can :read, Course
+      can :read, Booking
       can :create, User
     end
   end
