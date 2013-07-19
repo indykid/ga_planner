@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <b>Title:</b>
@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <b>Price:</b>
+  <b>Price: £</b>
   <%= @course.price %>
 </p>
 
@@ -20,6 +20,7 @@
 <% @course.bookings.each do |b| %>
 
 <li><%= b.b_date if b.b_date %></li>
+
 <%= link_to 'Destroy', b, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <%end%>

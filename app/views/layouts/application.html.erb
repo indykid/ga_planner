@@ -11,6 +11,9 @@
     <div id="top" class="cf">
       <h1 id="logo">GA logo</h1>
 
+      <% flash.each do |name, message|  %>
+      <span class="notice"><%= message%></span>
+    <%end%>
       <% if current_user %>
       <ul class="right authenticate">
     <li><%= link_to 'log out', logout_path(session), method: :delete, data: {confirm: 'Are you sure?'}, class: "authenticate" %></li>
@@ -33,15 +36,9 @@
 
         <%= render 'nav' %>
 
-        <div class="content ">
+        <div class="content cf">
         
 
-
-          <% flash.each do |name, message| %>
-         <div class="flash-message flash-message-<%= name %>">
-          <%= message %>
-         </div>
-          <% end %>
 
         <%= yield %>
       </div>

@@ -1,10 +1,10 @@
 
 <nav class="cf">
 <ul>
-        <li class="nav"><%= link_to "Courses", root_path, class: "rounded #{current_page?('courses', 'index')}" %></li>
-        <li class="nav"><%= link_to "Schedule", bookings_path, class: "rounded #{current_page?('bookings', 'index')}"  %></li>
+        <li class="nav"><%= link_to "Courses", root_path, class: "rounded #{current_page?('courses', ['index', 'show', 'edit', 'new'])}" %></li>
+        <li class="nav"><%= link_to "Schedule", bookings_path, class: "rounded #{current_page?('bookings', ['index', 'show', 'edit', 'new'])}"  %></li>
         <% if current_user %>
-        <li class="nav"><%= link_to "My account", current_user, class: "rounded #{current_page?('users', 'show')}"  %></li>
+        <li class="nav"><%= link_to "My account", current_user, class: "rounded #{current_page?('users', ['index', 'show', 'edit', 'new'])}"  %></li>
         <% end %>
 
 
@@ -12,9 +12,7 @@
         <li class="nav"><%= link_to "Dashboard", dashboard_path, class: "rounded #{current_page?('users', 'dashboard')}"  %></li>
         <% end %>
   
-    <% flash.each do |name, message|  %>
-    <p class="notice"><%= message%></p>
-    <%end%>
+    
 
   </ul>
 </nav>
