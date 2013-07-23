@@ -7,7 +7,7 @@ class Ability
       can [:manage], :all
     end
     if user.role?('student') || user.role?('instructor')
-      can [:read, :update], User, id: user.id
+      can [:read, :update, :create], User, id: user.id
       can :manage, Enrollment, user_id: user.id      
       can [:read, :enroll], Course
       can :read, Classroom
