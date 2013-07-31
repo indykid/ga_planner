@@ -85,7 +85,7 @@ class CoursesController < ApplicationController
 
   def enroll
     @course = Course.find(params[:id])
-    @enrollment = Enrollment.create(course_id: @course.id, user_id: current_user.id)
+    @enrollment = Enrollment.create(course_id: @course.id, user_id: current_user.id, confirmed: false)
     
     redirect_to courses_path
   end

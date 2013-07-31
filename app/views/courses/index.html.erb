@@ -8,7 +8,11 @@
     <p><%= link_to course.description, course %></p>
     <p>start: <%= course.start_date%>  end: <%= course.end_date%></p>
     <p>£<%= course.price %></p>
+    <% if current_user && current_user.enrolled?(course)%>
+    <p class="action_button rounded"> ENROLLED</p>
+    <%else%>
     <%= link_to 'ENROLL', enroll_path(course.id), class: "action_button rounded" %>
+    <%end%>
     </div>
     
 <% end %>

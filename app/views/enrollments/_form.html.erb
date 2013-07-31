@@ -12,8 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.collection_select :course_id, Course.all, :id, :title %>
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :name %><br />
+
+    <%= f.label :involvement %>
+    <%= f.select :involvement, ["student", "instructor"] %>
+
+    <%= f.label :confirmed %>
+    <%= f.select :confirmed, ["false", "true"] %>
+
+    <%= f.label :course_id %>
+    <%= f.collection_select :course_id, Course.all, :id, :title %><br />
   </div>
   <div class="actions">
     <%= f.submit %>

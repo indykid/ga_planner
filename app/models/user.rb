@@ -20,12 +20,17 @@ has_many :courses, through: :enrollments
 #   self.role = "student"
 # end
 
-def role?(role)
- self.role == role
-end
+	def role?(role)
+	 self.role == role
+	end
 
-def ensure_user_has_role
-  self.role = "student"
-end
+	def ensure_user_has_role
+	  self.role = "student"
+	end
+
+
+	def enrolled?(course)
+		self.courses.include?(course)
+	end
 
 end
